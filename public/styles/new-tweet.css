@@ -1,0 +1,26 @@
+.tweetButton {
+  background-color: #4056A1;
+  color: white;
+  border: none;
+}
+
+.tweet-btn-count{
+  font-family: bungee;
+  display: flex;
+  justify-content: space-between;
+
+}
+textarea {
+  width: 100%;
+  background: none;
+  border: none;
+  resize: none;
+  height: 50px;
+  border-bottom-color: #545149;
+  border-bottom-style: solid;
+  outline: none;
+}
+
+.new-tweet {
+  padding: 1.5em;
+}
