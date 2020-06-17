@@ -8,7 +8,7 @@
   font-family: bungee;
   display: flex;
   justify-content: space-between;
-
+  height: 40px;
 }
 textarea {
   width: 100%;
