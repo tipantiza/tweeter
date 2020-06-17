@@ -33,7 +33,7 @@
       </span>
     </nav>
     
-    <header>
+    <header class="home">
       <div>
         <img src="/images/profile-hex.png"> 
       </div>
@@ -48,13 +48,29 @@
       <section class="new-tweet">
         <!-- <h2>Compose Tweet</h2> -->
         <form class="new-tweet" action="/tweets/" method="POST">
-          <label for="tweet-text">What are you humming about?</label>
+          <label for="tweet-text"><b>What are you humming about?</b></label>
           <textarea name="text" id="tweet-text"></textarea>
           <div class="tweet-btn-count">
             <button class="tweetButton" type="submit">Tweet</button>
             <output name="counter" class="counter" for="tweet-text">140</output>
           </div>
         </form>
+      </section>
+      <section>
+        <article>
+          <header id="tweet-profile" class="align-text-a">
+            hi buddy
+          </header>
+          <footer>
+            <div class="footerBox a align-text-a">
+             If ive seen further it is by standing on the sholders of giants.
+            </div>
+            <div class="footerBox b">
+              <p class="align-text-b">10 days ago</p>
+              <p class="align-text-b">⚑ ↩︎ ♥︎</p>
+            </div>
+          </footer>
+        </article>
       </section>
     </main>
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>

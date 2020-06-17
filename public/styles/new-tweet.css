@@ -24,3 +24,56 @@ textarea {
 .new-tweet {
   padding: 1.5em;
 }
+
+
+article {
+  border-style: solid;
+  margin-left: 1.5em;
+  margin-right: 1.5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 310px;
+}
+
+#tweet-profile {
+  background: none;
+  /* border: solid; */
+  height: 40%;;
+  width: 100%;
+}
+footer {
+  /* border-style: solid; */
+  height: 60%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.footerBox {
+  /* border-style: solid; */
+}
+
+.footerBox.b{
+  height: 40%;
+  margin-left: 15px;
+  margin-right: 15px;
+  display: flex;
+  justify-content: space-between;
+  border-top-style: solid;
+
+}
+
+.footerBox.a{
+  height: 60%;
+}
+.align-text-a{
+    display: flex;
+    margin-left: 40px;
+    align-items: center;
+}
+
+.align-text-b{
+  margin: 5px 15px;
+  font-size: large;
+}
