@@ -19,6 +19,7 @@ textarea {
   border-bottom-color: #545149;
   border-bottom-style: solid;
   outline: none;
+  font-size: 29px;
 }
 
 .new-tweet {
@@ -28,8 +29,7 @@ textarea {
 
 article {
   border-style: solid;
-  margin-left: 1.5em;
-  margin-right: 1.5em;
+  margin: 1.5em;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -66,14 +66,38 @@ footer {
 
 .footerBox.a{
   height: 60%;
+  font-size: 28px;
 }
 .align-text-a{
     display: flex;
-    margin-left: 40px;
     align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 40px;
 }
 
 .align-text-b{
   margin: 5px 15px;
   font-size: large;
+}
+
+.avatar-name{
+  display: flex;
+  align-items: center;
+}
+
+#avatar {
+  height: 50px;
+  margin-right: 10px;
+}
+
+article:hover .tag-Name{
+  visibility: visible;
+}
+article:hover{
+  box-shadow: 20px 20px lightgray;
+}
+.tag-Name {
+  visibility: hidden;
+  color: lightgray;
 }
