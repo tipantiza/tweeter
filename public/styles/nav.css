@@ -7,7 +7,9 @@ nav {
   display: flex;
   justify-content: space-between;
   font-size: 40px;
-  
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 .sourceSansePro{
   font-family: 'Source Sans Pro', sans-serif;
