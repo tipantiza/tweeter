@@ -28,7 +28,7 @@ $(document).ready(function(){
       $.post('/tweets/', 
       data, 
       function(){
-        console.log("success");
+        loadTweets();
       })
 
     }
@@ -37,7 +37,7 @@ $(document).ready(function(){
   const loadTweets = function () {
       $.getJSON('/tweets/', 
         function(data){
-          console.log(data);
+          $('#tweets-container').empty()
           renderTweets(data)
       })
   
