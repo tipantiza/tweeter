@@ -1,64 +1,68 @@
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
 
-$(document).ready(function(){
-
-  // $.ajax({
-  //   type: "POST",
-  //   url: url,
-  //   data: data,
-  //   success: success,
-  //   dataType: dataType
-  // });
-
+$(document).ready(function() {
+  /*
+   * Client-side JS logic goes here
+   * jQuery is already loaded
+   * Reminder: Use (and do all your DOM work in) jQuery's document ready function
+   */
+  
   
   $('form.new-tweet').submit(function(event) {
     event.preventDefault();
     const data = $(this).serialize();
-    const decodedData = decodeURIComponent(data).slice(5)
-
-    if(!decodedData){
-      alert("Please type a message")
-    } else if(decodedData.length > 140){
-      alert("Message is too long, please type something less then 140 characters")
+    const decodedData = decodeURIComponent(data).slice(5);
+    $("#error-message").slideUp(()=>{
+      $("#error-messages").empty();
+    });
+    if (!decodedData) {
+      const message =  "🔺Woah Woah, slow down there buckaroo, plz type something in! 🔺";
+      renderAlert(message);
+    } else if (decodedData.length > 140) {
+      const message = "🔺Woah Woah, slow down there buckaroo, plz rspct our arbitrary limit of 140 chars 🔺";
+      renderAlert(message);
     } else {
-      $.post('/tweets/', 
-      data, 
-      function(){
-        loadTweets();
-      })
-
+      $.post('/tweets/',
+        data,
+        function() {
+          loadTweets();
+        });
     }
-  })
+  });
 
-  const loadTweets = function () {
-      $.getJSON('/tweets/', 
-        function(data){
-          $('#tweets-container').empty()
-          renderTweets(data)
-      })
+  const renderAlert = function(alert) {
+    $("#error-messages").prepend(
+      `<div id="error-message">
+      ${alert}
+      </div> `
+    );
+    if ($("#error-message").first().is(":hidden")) {
+      $("#error-message").slideDown();
+    }
+  };
+
+  const loadTweets = function() {
+    $.getJSON('/tweets/',
+      function(data) {
+        $('#tweets-container').empty();
+        renderTweets(data);
+      });
   
-  }
+  };
 
-  const renderTweets = function(tweets){
-    for (tweet of tweets){
-      const $tweet = createTweetElement(tweet)
-      $('#tweets-container').prepend($tweet)
+  const renderTweets = function(tweets) {
+    for (const tweet of tweets) {
+      const $tweet = createTweetElement(tweet);
+      $('#tweets-container').prepend($tweet);
     }
-  }
+  };
 
-
-   const createTweetElement = function(tweet){
-      const name = tweet.user.name;
-      const avatar = tweet.user.avatars;
-      const handle = tweet.user.handle;
-      const text = tweet.content.text;
-      const created_at = tweet.created_at;
-
-      const tweetArticle = `
+  const createTweetElement = function(tweet) {
+    const name = tweet.user.name;
+    const avatar = tweet.user.avatars;
+    const handle = tweet.user.handle;
+    const text = tweet.content.text;
+    const created_at = tweet.created_at;
+    const tweetArticle = `
       <article>
           <header id="tweet-profile" class="align-text-a">
             <div class="avatar-name">
@@ -74,7 +78,7 @@ $(document).ready(function(){
           </header>
           <footer>
             <div class="footerBox a align-text-a">
-              ${text}
+              ${escape(text)}
             </div>
             <div class="footerBox b">
               <p class="align-text-b">${created_at}</p>
@@ -83,7 +87,15 @@ $(document).ready(function(){
           </footer>
         </article>
       `;
-      return tweetArticle;
-    }
-    loadTweets();
- })
+    return tweetArticle;
+  };
+
+  const escape =  function(str) {
+    let div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
+
+
+  loadTweets();
+});

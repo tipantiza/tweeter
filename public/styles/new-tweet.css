@@ -94,3 +94,16 @@ article:hover{
   visibility: hidden;
   color: lightgray;
 }
+
+
+#error-message {
+  text-align: center;
+  border-style: solid ;
+  border-color: red;
+  color: red;
+  margin-right: 200px;
+  margin-left: 200px;
+  padding: 30px 0px;
+  font-weight: bolder;
+  display: none;
+}
