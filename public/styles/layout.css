@@ -24,7 +24,8 @@ body {
 }
 
 main {
-  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
   align-self: center;
   background-color: #f4f1ec;
 }
@@ -32,3 +33,4 @@ main {
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+ 

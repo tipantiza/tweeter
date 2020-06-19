@@ -27,12 +27,12 @@
     <!-- Top nav bar (fixed) -->
     <nav>
       <span >tweeter</span>
-      <span class="doubleDown">
+      <button type="button" class="doubleDown">
         <span class="sourceSansePro"><b>Write</b> a new tweet</span>
         <i class="fa fa-angle-double-down"></i>
-      </span>
+      </button>
     </nav>
-    
+  <div id="for-the-desktop">
     <header class="home">
       <div>
         <img class="initial-image" src="/images/profile-hex.png"> 
@@ -48,7 +48,7 @@
       <section class="new-tweet">
         <!-- <h2>Compose Tweet</h2> -->
         <div id="error-messages">
-
+          <div></div>
         </div>
         <form class="new-tweet" action="/tweets/" method="POST">
           <label for="tweet-text"><b>What are you humming about?</b></label>
@@ -64,5 +64,7 @@
     </main>
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script src="/scripts/composer-char-counter.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.min.js"></script>
   </body>
+</div>
   </html>

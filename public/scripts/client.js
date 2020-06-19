@@ -6,14 +6,22 @@ $(document).ready(function() {
    * Reminder: Use (and do all your DOM work in) jQuery's document ready function
    */
   
-  
+  $('.doubleDown').click(function(){
+
+    if ($(".new-tweet").first().is(":hidden")) {
+      $(".new-tweet").slideDown('slow');
+      $("textarea").focus();
+    } else {
+      $(".new-tweet").slideUp('slow');
+    }
+  })
+
+
   $('form.new-tweet').submit(function(event) {
     event.preventDefault();
     const data = $(this).serialize();
     const decodedData = decodeURIComponent(data).slice(5);
-    $("#error-message").slideUp(()=>{
-      $("#error-messages").empty();
-    });
+    $("#error-message").slideUp()
     if (!decodedData) {
       const message =  "🔺Woah Woah, slow down there buckaroo, plz type something in! 🔺";
       renderAlert(message);
@@ -25,11 +33,15 @@ $(document).ready(function() {
         data,
         function() {
           loadTweets();
+          $("textarea").val('').change()
+          $(".counter").val("140").change()
         });
     }
+   
   });
 
   const renderAlert = function(alert) {
+    $("#error-messages").empty()
     $("#error-messages").prepend(
       `<div id="error-message">
       ${alert}
@@ -37,7 +49,7 @@ $(document).ready(function() {
     );
     if ($("#error-message").first().is(":hidden")) {
       $("#error-message").slideDown();
-    }
+    } 
   };
 
   const loadTweets = function() {
@@ -61,7 +73,7 @@ $(document).ready(function() {
     const avatar = tweet.user.avatars;
     const handle = tweet.user.handle;
     const text = tweet.content.text;
-    const created_at = tweet.created_at;
+    const created_at = moment(tweet.created_at).fromNow();
     const tweetArticle = `
       <article>
           <header id="tweet-profile" class="align-text-a">
@@ -82,7 +94,7 @@ $(document).ready(function() {
             </div>
             <div class="footerBox b">
               <p class="align-text-b">${created_at}</p>
-              <p class="align-text-b">⚑ ↩︎ ♥︎</p>
+              <p class="align-text-b tag-Name">⚑ ↩︎ ♥︎</p>
             </div>
           </footer>
         </article>
