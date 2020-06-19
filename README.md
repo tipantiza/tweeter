@@ -6,6 +6,12 @@ This repository is the starter code for the project: Students will fork and clon
 
 Had such a great time creating this I wish I had more time, in the future I defentely plan to add more functionality!
 
+## Preview
+
+![destip view](https://github.com/tipantiza/tweeter/blob/master/docs/desktop-view.png?raw=true)
+![mobile view](https://github.com/tipantiza/tweeter/blob/master/docs/mobile-view.png?raw=true)
+![error message example](https://github.com/tipantiza/tweeter/blob/master/docs/error-message-example.png?raw=true)
+
 ## Getting Started
 
 1. Fork this repository, then clone your fork of this repository.
